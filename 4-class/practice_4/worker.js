@@ -7,6 +7,6 @@ export default class Worker extends Person {
   }
 
   introduce() {
-    return `I am a Student. ` + `I am at Class ${this.klass}.`;
+    return `${super.introduce()} I am a Worker. I have a job.`;
   }
 }
