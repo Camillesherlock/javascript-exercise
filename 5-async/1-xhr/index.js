@@ -2,22 +2,20 @@ function fetchData(url, successCallback, errorCallback) {
   const xhr = new XMLHttpRequest();
   // <-- start
   // TODO 21: 通过XMLHttpRequest实现异步请求
+  xhr.open('GET', URL, true);
   xhr.onreadystatechange = function() {
-    // In local files, status is 0 upon success in Mozilla Firefox
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      const { status } = xhr;
-      if (status === 0 || (status >= 200 && status < 400)) {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
         // The request has been completed successfully
-        console.log(xhr.responseText);
+        successCallback(xhr);
       } else {
-        console.log(xhr.statusText);
+        errorCallback(xhr);
       }
     }
   };
   xhr.send();
   // end -->
 }
-
 const URL = 'http://localhost:3000/api';
 fetchData(
   URL,
