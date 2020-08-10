@@ -12,7 +12,6 @@ test('把集合中以粤A开头的牌号统计出数量', () => {
     '黑H34333',
     '鄂D39348'
   ];
-
   const result = collectCarNumberCount(collection);
   expect(result).toEqual(3);
 });
