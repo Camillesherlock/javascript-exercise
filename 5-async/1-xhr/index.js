@@ -7,9 +7,9 @@ function fetchData(url, successCallback, errorCallback) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         // The request has been completed successfully
-        successCallback(xhr);
+        successCallback(xhr.responseText);
       } else {
-        errorCallback(xhr);
+        errorCallback(xhr.statusText);
       }
     }
   };
@@ -20,9 +20,12 @@ const URL = 'http://localhost:3000/api';
 fetchData(
   URL,
   result => {
-    document.writeln(JSON.parse(result).name);
+    console.log(1);
+    //console.log(JSON.parse(result).name);
+    //document.writeln(JSON.parse(result).name);
   },
   error => {
     console.error(error);
+    //console.error(error);
   }
 );

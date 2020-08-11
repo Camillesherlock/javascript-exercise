@@ -1,7 +1,7 @@
 function fetchData(url) {
   // <-- start
   // TODO 23: 通过Fetch API实现异步请求
-  result = fetch(url);
+  return fetch(url).then(res => res.json());
   // end -->
 }
 
